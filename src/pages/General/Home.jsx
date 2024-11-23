@@ -20,7 +20,7 @@ function Home() {
 
   const logOut = () => {
     logout();
-    navigate("/login");
+    navigate("/");
   };
 
   return (
