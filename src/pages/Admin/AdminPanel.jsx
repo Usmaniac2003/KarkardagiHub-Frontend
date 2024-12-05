@@ -11,10 +11,10 @@ import {
 } from "@mui/material";
 import { FaUsers, FaUserEdit, FaHome } from "react-icons/fa";
 import { useAuth } from "../../context/Auth";
+import UserManagement from "../../components/Admin/UserManagement";
 
 // Components for different pages
 const Home = () => <Typography variant="h4">Home Component</Typography>;
-const UserManagement = () => <Typography variant="h4">User Management Component</Typography>;
 const Profile = () => <Typography variant="h4">Profile Component</Typography>;
 
 const AdminPanel = () => {

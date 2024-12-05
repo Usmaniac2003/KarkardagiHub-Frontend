@@ -1,8 +1,11 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/Auth"; // Import AuthContext
 import { toast, ToastContainer } from "react-toastify"; // Import Toastify
 import "react-toastify/dist/ReactToastify.css"; // Import Toastify styles
+import LoginBG from "../../assets/loginBg.jpeg";
+import KHlogo from "../../assets/Logo KH.png";
+import "../../styles/App.css";
 
 function Login() {
   const { login } = useAuth(); // Get login function from AuthContext
@@ -42,78 +45,108 @@ function Login() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      {/* Add the ToastContainer here */}
+    <div className="flex h-screen">
       <ToastContainer />
-      <form
-        onSubmit={handleSubmit}
-        className="bg-white shadow-lg rounded-lg p-6 w-full max-w-sm"
-      >
-        <h2 className="text-2xl font-bold text-center mb-4 text-gray-800">
-          Login
-        </h2>
+      {/* Image Section */}
+      <div className="w-1/2 relative">
+  {/* Background Image */}
+  <img
+    src={LoginBG}
+    alt="Background"
+    className="h-full w-full object-cover"
+  />
 
-        {/* Email Input */}
-        <div className="mb-4">
-          <label
-            htmlFor="email"
-            className="block text-gray-700 font-semibold mb-1"
-          >
-            Email:
-          </label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="Enter your email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)} // Update state
-            required
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
-          />
-        </div>
+  {/* Black Overlay */}
+  <div className="absolute inset-0 bg-black bg-opacity-50"></div>
 
-        {/* Password Input */}
-        <div className="mb-6">
-          <label
-            htmlFor="password"
-            className="block text-gray-700 font-semibold mb-1"
-          >
-            Password:
-          </label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            placeholder="Enter your password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)} // Update state
-            required
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
-          />
-        </div>
+  {/* Centered Logo */}
+  <div className="absolute inset-0 flex justify-center items-center">
+    <img src={KHlogo} alt="Logo" />
+  </div>
+</div>
 
-        {/* Submit Button */}
-        <button
-          type="submit"
-          className="w-full bg-blue-500 text-white font-bold py-2 rounded-lg hover:bg-blue-600 transition duration-300"
+
+
+      {/* Form Section */}
+      <div className="w-1/2 flex justify-center items-center bg-[#FEFFFF]">
+        <form
+          onSubmit={handleSubmit}
+          className="bg-white  p-6 w-3/4 max-w-screen-md"
         >
-          Login
-        </button>
-
-        {/* Additional Links */}
-        <div className="mt-4 text-center">
-          <p className="text-sm text-gray-600">
-            Don't have an account?{" "}
-            <span
-              onClick={GotoRegister}
-              className="text-blue-500 hover:underline cursor-pointer"
+          <div className="heading flex flex-col">
+            <h1
+              className="poppins text-3xl font-extrabold  text-[#256CC2]"
+              style={{ fontWeight: "800" }}
             >
-              Register here
-            </span>
-          </p>
-        </div>
-      </form>
+              Login
+            </h1>
+            <p className="text-[#256CC2]">Welcome back! Lets get to work</p>
+          </div>
+          {/* Email Input */}
+          <div className="mb-4">
+            <label
+              htmlFor="email"
+              className="block text-gray-700 font-semibold mb-1"
+            >
+              Email:
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Enter your email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)} // Update state
+              required
+              className="w-full px-4 py-2 bg-[#ECECEC] border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
+            />
+          </div>
+
+          {/* Password Input */}
+          <div className="mb-6">
+            <label
+              htmlFor="password"
+              className="block text-gray-700 font-semibold mb-1"
+            >
+              Password:
+            </label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Enter your password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)} // Update state
+              required
+              className="w-full px-4 py-2 bg-[#ECECEC] border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
+            />
+          </div>
+
+          {/* Submit Button */}
+          <div className="flex flex-col items-center">
+            {/* Centered Button */}
+            <button
+              type="submit"
+              className="w-[70%] mx-auto bg-[#256CC2] text-white font-bold py-2 rounded-lg hover:bg-[#256CC2] transition duration-300"
+            >
+              Login
+            </button>
+          </div>
+
+          {/* Additional Links */}
+          <div className="mt-4 text-center">
+            <p className="text-sm text-gray-600">
+              Don't have an account?{" "}
+              <span
+                onClick={GotoRegister}
+                className="text-blue-500 hover:underline cursor-pointer"
+              >
+                Register here
+              </span>
+            </p>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }
