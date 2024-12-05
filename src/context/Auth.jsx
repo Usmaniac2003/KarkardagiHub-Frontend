@@ -55,12 +55,28 @@ export const AuthProvider = ({ children }) => {
 
   // Navigate based on user role
   const navigateBasedOnRole = (role) => {
-    if (role === "admin" || role === "Admin") navigate("/adminpanel");
-    else if (role === "manager"||role === "Manager") navigate("/managerpanel");
-    else if (role === "staff"||role === "Staff") navigate("/staffpanel");
-    else if (role === "user"||role === "User") navigate("/nopanel");
-    else navigate("/");
+    const roleLower = role.toLowerCase(); // Convert role to lowercase for consistency
+    console.log(roleLower);
+    
+    // Redirect to appropriate panel page based on user role
+    switch(roleLower) {
+      case 'admin':
+        navigate("/adminpanel");
+        break;
+      case 'manager':
+        navigate("/managerpanel");
+        break;
+      case 'staff':
+        navigate("/staffpanel");
+        break;
+      case 'user':
+        navigate("/nopanel");
+        break;
+      default:
+        navigate("/");
+    }
   };
+  
 
   // Fetch current user after component mounts
   const fetchCurrentUser = async () => {
