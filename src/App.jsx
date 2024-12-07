@@ -20,6 +20,7 @@ export default function App() {
     <Route exact path="/" element={<Login />} />
     <Route exact path="/adminpanel" element={<ProtectedRoute element={<AdminPanel />} condition={user?.role==="admin"}></ProtectedRoute>} />
     <Route exact path="/managerpanel" element={<ProtectedRoute element={<ManagerPanel />} condition={user?.role==="manager"}></ProtectedRoute>} />
+
     <Route exact path="/staffpanel" element={<ProtectedRoute element={<StaffPanel />} condition={user?.role==="staff"}></ProtectedRoute>} /> 
     <Route exact path="/nopanel" element={<ProtectedRoute element={<NoPanel />} condition={user?.role==="user"}></ProtectedRoute>} />
     <Route path="/register" element={<Signup></Signup>} />

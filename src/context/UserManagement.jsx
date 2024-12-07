@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState } from "react";
-import api from "../services/apiservice";
+import api from "../services/apiservice";  // Ensure api service is correctly set up
 import { useAuth } from "./Auth";
 
 const UserManagementContext = createContext();
@@ -8,18 +8,18 @@ export const UserManagementProvider = ({ children }) => {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-    const {user}=useAuth();
+  const { user } = useAuth();
+
   // Fetch users with filter
-  // Fetch all users
   const fetchUsers = async (filters = {}) => {
     setLoading(true);
     try {
       const response = await api.get("admin/users", { params: filters });
       const fetchedUsers = response.users; // Assume response contains a `users` field
-  
+
       // Exclude the current user from the list
       const filteredUsers = fetchedUsers.filter((fetchedUser) => fetchedUser._id !== user?._id);
-  
+
       setUsers(filteredUsers); // Set the filtered list of users
     } catch (err) {
       console.error("Error fetching users:", err.message);
@@ -28,7 +28,6 @@ export const UserManagementProvider = ({ children }) => {
       setLoading(false);
     }
   };
-  
 
   // Add a new user
   const addUser = async (userData) => {

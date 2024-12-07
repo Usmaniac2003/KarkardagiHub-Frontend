@@ -48,7 +48,7 @@ const AdminPanel = () => {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          borderRight: "1px solid grey"
+          borderRight: "1px solid #C6DFFF"
         }}
         p={2}
       >
@@ -98,7 +98,7 @@ const AdminPanel = () => {
       </Box>
 
       {/* Main Content */}
-      <Box flex="1" p={4} bgcolor="gray.100">
+      <Box flex="1"  bgcolor="gray.100">
         {pages[selectedPage].component}
       </Box>
     </Box>
