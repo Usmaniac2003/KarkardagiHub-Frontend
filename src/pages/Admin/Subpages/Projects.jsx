@@ -20,7 +20,6 @@ const Projects = () => {
     EDIT: { label: "Edit Project",  component: <EditProject /> },
     DELETE: { label: "Remove Project",  component: <DeleteProject /> },
     VIEW: { label: "View Project",  component: <ViewProjects /> },
-    ANALYTICS: { label: "Project Analytics",  component: <EmployeeAnalytics /> },
     };
   
 
