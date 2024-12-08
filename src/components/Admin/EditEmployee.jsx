@@ -67,32 +67,7 @@ const EditEmployee = () => {
     <div className="p-8 bg-[#DBEBFF]  rounded-md">
       <h1 className="text-3xl font-bold text-center mb-6">Edit Employee</h1>
 
-      {/* Filters */}
-      <div className="flex justify-between items-center mb-6">
-        <TextField
-          label="Search"
-          variant="outlined"
-          size="small"
-          value={search}
-          onChange={(e) => setSearch(e.target.value)} // Update search term
-          className="w-1/2"
-        />
-        <FormControl className="w-1/4">
-          <InputLabel>Role</InputLabel>
-          <Select
-            value={roleFilter}
-            onChange={(e) => setRoleFilter(e.target.value)} // Update role filter
-            label="Role"
-          >
-            <MenuItem value="">All Roles</MenuItem>
-            <MenuItem value="admin">Admin</MenuItem>
-            <MenuItem value="staff">Staff</MenuItem>
-            <MenuItem value="manager">Manager</MenuItem>
-            <MenuItem value="user">User</MenuItem>
-          </Select>
-        </FormControl>
-      </div>
-
+     
       {loadingUsers ? (
         <div className="flex justify-center items-center">
           <CircularProgress />

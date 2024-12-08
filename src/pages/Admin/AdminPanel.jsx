@@ -9,7 +9,7 @@ import {
   Divider,
   Button,
 } from "@mui/material";
-import { FaUsers, FaUserEdit, FaHome,FaTasks,FaProjectDiagram,FaChartLine,FaCog,FaSignOutAlt } from "react-icons/fa";
+import { FaUsers, FaUserEdit, FaHome,FaProjectDiagram,FaChartLine,FaCog,FaSignOutAlt, FaBell } from "react-icons/fa";
 import { useAuth } from "../../context/Auth";
 import UserManagement from "../Admin/Subpages/UserManagement";
 import Navbar from "../../components/General/Navbar";
@@ -17,7 +17,7 @@ import Home from "./Subpages/Home";
 import Profile from "./Subpages/Profile";
 import Report from "./Subpages/Report";
 import Settings from "./Subpages/Settings";
-import Tasks from "./Subpages/Tasks";
+import Notifications from "./Subpages/Notifications";
 import Projects from "./Subpages/Projects";
 const AdminPanel = () => {
   const {logout } = useAuth();
@@ -27,10 +27,11 @@ const AdminPanel = () => {
   const pages = {
     Home: { label: "Home", icon: <FaHome />, component: <Home /> },
     UserManagement: { label: "User", icon: <FaUsers />, component: <UserManagement /> },
-    Tasks: { label: "Tasks", icon: <FaTasks />, component: <Tasks /> },
     Projects: { label: "Projects", icon: <FaProjectDiagram />, component: <Projects /> },
     Report: { label: "Reports", icon: <FaChartLine />, component: <Report /> },
     Profile: { label: "Profile", icon: <FaUserEdit />, component: <Profile /> },
+    
+    Notifications: { label: "Notifications", icon: <FaBell />, component: <Notifications /> },
     Settings: { label: "Settings", icon: <FaCog />, component: <Settings /> },
   };
   

@@ -10,6 +10,7 @@ import AddEmployee from "../../../components/Admin/AddEmployee";
 import EditEmployee from "../../../components/Admin/EditEmployee";
 import DeleteEmployee from "../../../components/Admin/DeleteEmployee";
 import EmployeeAnalytics from "../../../components/Admin/EmployeeAnalytics";
+import ViewPage from "../../../components/Admin/ViewEmployee";
 
 const UserManagement = () => {
   const [selectedPage, setSelectedPage] = useState("Home");
@@ -19,7 +20,8 @@ const UserManagement = () => {
     Home: { label: "Add Employee", component: <AddEmployee /> },
     UserManagement: { label: "Edit Employee",  component: <EditEmployee /> },
     Tasks: { label: "Remove Employee",  component: <DeleteEmployee /> },
-    Projects: { label: "Employee Analytics",  component: <EmployeeAnalytics /> }
+    View: { label: "View Employees",  component: <ViewPage /> },
+    Projects: { label: "Employee Analytics",  component: <EmployeeAnalytics /> },
     };
   
 
