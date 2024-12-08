@@ -7,6 +7,8 @@ import { AuthProvider } from './context/Auth.jsx';
 import { CookiesProvider } from 'react-cookie';
 import { UserManagementProvider } from './context/UserManagement.jsx'
 import { TaskProvider } from './context/TaskContext.jsx'
+import { ProjectProvider } from './context/ProjectContext.jsx';
+import { ToastContainer } from 'react-toastify';  // Import ToastContainer
 import { ChatProvider } from './context/ChatContext';
 
 createRoot(document.getElementById('root')).render(
@@ -16,9 +18,22 @@ createRoot(document.getElementById('root')).render(
       <AuthProvider>
         <TaskProvider>
           <ChatProvider>
-        <UserManagementProvider>
+          <UserManagementProvider>
+          <ProjectProvider>
       <App />
-      </UserManagementProvider>
+      <ToastContainer 
+                position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+              />
+            </ProjectProvider>
+          </UserManagementProvider>
       </ChatProvider>
       </TaskProvider>
       </AuthProvider>
