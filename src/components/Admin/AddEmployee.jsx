@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import {
   Button,
   TextField,
@@ -9,6 +9,8 @@ import {
   CircularProgress,
 } from "@mui/material";
 import { useUserManagement } from "../../context/UserManagement"; // Import context to access addUser
+import { toast } from "react-toastify"; // Import toast from react-toastify
+import "react-toastify/dist/ReactToastify.css"; // Import Toastify CSS
 
 const AddEmployee = () => {
   const { addUser, loading, error } = useUserManagement(); // Get addUser, loading and error from context
@@ -36,14 +38,17 @@ const AddEmployee = () => {
     // Basic validation: check if all fields are filled
     if (!newUser.username || !newUser.email || !newUser.password || !newUser.role) {
       setFormError("Please fill in all fields.");
+      toast.error("Please fill in all fields."); // Show error toast
       return;
     }
 
     try {
       await addUser(newUser); // Call addUser from context
       setNewUser({ username: "", email: "", password: "", role: "user" }); // Clear form
+      toast.success("Employee added successfully!"); // Show success toast
     } catch (err) {
       setFormError("Error adding user. Please try again.");
+      toast.error("Error adding user. Please try again."); // Show error toast on failure
     }
   };
 
