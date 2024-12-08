@@ -46,6 +46,7 @@ export const AuthProvider = ({ children }) => {
       await api.post("auth/logout");
       setUser(null);
       localStorage.removeItem("authToken");
+      localStorage.removeItem("userId"); // Remove userId from localStorage
       navigate("/"); // Redirect to login page
     } catch (error) {
       console.error("Logout error:", error.message);
@@ -89,6 +90,7 @@ export const AuthProvider = ({ children }) => {
 
       const response = await api.get("auth/currentUser");
       setUser(response); // Set user state
+      localStorage.setItem("userId", response._id); // Store user ID in localStorage
     } catch (error) {
       console.error("Fetch current user error:", error.message);
       logout(); // Clear invalid token and reset state
@@ -102,12 +104,12 @@ export const AuthProvider = ({ children }) => {
     if (user && !loading) {
       navigateBasedOnRole(user.role); // Navigate to the appropriate panel
     }
-  }, [user]); // Dependencies include `user`, `loading`, and `navigate`
+  }, [user, loading, navigate]);
 
   // Fetch current user on mount
   useEffect(() => {
     fetchCurrentUser();
-  }, []); // Empty array ensures this runs only once
+  }, []);
 
   return (
     <AuthContext.Provider value={{ user, register, login, logout, loading }}>
@@ -119,3 +121,4 @@ export const AuthProvider = ({ children }) => {
 export const useAuth = () => {
   return useContext(AuthContext);
 };
+
