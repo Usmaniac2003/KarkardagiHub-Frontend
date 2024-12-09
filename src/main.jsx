@@ -13,9 +13,9 @@ import 'react-toastify/dist/ReactToastify.css';  // Import styles for toastify
 import { ActivityLogProvider } from './context/ActivityLogContext.jsx';
 import { ChatProvider } from './context/ChatContext.jsx';
 import { DashboardProvider } from './context/DashboardContext.jsx';
-import { NotificationProvider } from './context/NotificationContext.jsx';
 import { UserProvider } from './context/UserContext.jsx';
 import { StaffDashboardProvider } from './context/StaffDashboardContext';
+import { NotificationProvider } from './context/notificationContext.jsx';
 
 
 createRoot(document.getElementById('root')).render(
@@ -29,13 +29,12 @@ createRoot(document.getElementById('root')).render(
           <ActivityLogProvider>
             <ProjectProvider>
               <DashboardProvider>
-                <NotificationProvider>
                 <UserProvider>
-                  <NotificationProvider>
                     <StaffDashboardProvider>
-              <App />
+                      <NotificationProvider>
+                          <App />
+                          </NotificationProvider>
               </StaffDashboardProvider>
-              </NotificationProvider>
               </UserProvider>
               {/* Place ToastContainer here so it can be used globally */}
               <ToastContainer 
@@ -49,7 +48,6 @@ createRoot(document.getElementById('root')).render(
                 draggable
                 pauseOnHover
               />
-              </NotificationProvider>
               </DashboardProvider>
             </ProjectProvider>
             </ActivityLogProvider>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import {
   Box,
   List,
@@ -8,13 +8,11 @@ import {
   Divider,
   Button,
 } from "@mui/material";
-import { FaUsers, FaHome,FaProjectDiagram,FaChartLine,FaCog,FaSignOutAlt, FaBell, FaSpeakerDeck, FaBullhorn } from "react-icons/fa";
+import { FaUsers, FaHome,FaProjectDiagram, FaBullhorn, FaSignOutAlt } from "react-icons/fa";
 import { useAuth } from "../../context/Auth";
 import UserManagement from "../Admin/Subpages/UserManagement";
 import Navbar from "../../components/General/Navbar";
 import Home from "./Subpages/Home";
-import Settings from "./Subpages/Settings";
-import Notifications from "./Subpages/Notifications";
 import Projects from "./Subpages/Projects";
 import AI from "../../components/Admin/AI";
 const AdminPanel = () => {
