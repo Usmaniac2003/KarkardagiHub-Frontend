@@ -9,7 +9,7 @@ import {
 } from "@mui/material";
 import AddTaskSubmission from "../SubPages/AddTaskSubmission";
 import EditTaskSubmission from "../SubPages/EditTaskSubmission";
-import ViewAllTasks from "../SubPages/ViewAllTasks";
+import ViewAllTasks from "./ViewAllTasks";
 
 const TaskManagement = () => {
   const [selectedPage, setSelectedPage] = useState("TaskSubmission");

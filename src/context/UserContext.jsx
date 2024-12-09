@@ -1,41 +1,48 @@
-// src/context/UserContext.js
+import React, { createContext, useContext, useState, useEffect } from "react"
 
-import React, { createContext, useContext, useState, useEffect } from "react";
-import axios from "axios";
+export const UserContext = createContext()
 
-// Create the context
-export const UserContext = createContext(); // Explicit export
-
-// Create a provider component
 export const UserProvider = ({ children }) => {
-  const [user, setUser] = useState(null);  // To store user data
-  const [loading, setLoading] = useState(true);  // Loading state
-  const [error, setError] = useState(null);  // Error state
+  const [user, setUser] = useState(null)
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(null)
+
+  const fetchUser = async () => {
+    try {
+      // Simulating API call with sample data
+      const sampleUser = {
+        id: '1',
+        name: 'John Doe',
+        email: 'john@example.com',
+        badges: ['staff-of-month', '100-point-master'],
+        reward_lists: ['best-files', 'staff-of-year']
+      };
+      setUser(sampleUser);
+      setError(null);
+    } catch (err) {
+      console.error("Error fetching user:", err);
+      setError("Failed to fetch user data");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
-    // Fetch the logged-in user's info when the app loads (e.g., from localStorage or an API)
-    const fetchUser = async () => {
-      try {
-        const response = await axios.get("/api/me");  // Make a request to get user info
-        setUser(response.data);  // Set the user data to state
-      } catch (err) {
-        setError(err.message);  // Handle error
-      } finally {
-        setLoading(false);  // Set loading to false after fetching user data
-      }
-    };
-
-    fetchUser();
-  }, []);
+    fetchUser()
+  }, [])
 
   return (
-    <UserContext.Provider value={{ user, loading, error }}>
+    <UserContext.Provider value={{ user, loading, error, fetchUser }}>
       {children}
     </UserContext.Provider>
-  );
-};
+  )
+}
 
-// Custom hook to use user context
 export const useUser = () => {
-  return useContext(UserContext);
-};
+  const context = useContext(UserContext)
+  if (context === undefined) {
+    throw new Error("useUser must be used within a UserProvider")
+  }
+  return context
+}
+

@@ -44,25 +44,40 @@ export function TaskProvider({ children }) {
 
   const updateTask = async (updatedTask) => {
     try {
-      const token = localStorage.getItem("authToken")
-      const response = await axios.put(`http://localhost:3000/tasks/${updatedTask._id}`, updatedTask, {
-        headers: {
-          "x-auth-token": token
+      if (!updatedTask || !updatedTask._id) {
+        throw new Error("Invalid task data: Missing _id");
+      }
+  
+      const token = localStorage.getItem("authToken");
+      if (!token) {
+        throw new Error("Authentication token not found");
+      }
+  
+      const response = await axios.put(
+        `http://localhost:3000/tasks/${updatedTask._id}`,
+        updatedTask,
+        {
+          headers: {
+            "x-auth-token": token,
+            "Content-Type": "application/json"
+          }
         }
-      })
+      );
       
       setTasks(prevTasks => 
         prevTasks.map(task => 
           task._id === updatedTask._id ? response.data : task
         )
-      )
-
+      );
+  
       if (updatedTask.status === 'Completed') {
-        setSelectedTask(null)
+        setSelectedTask(null);
       }
+  
+      return response.data;
     } catch (err) {
-      console.error("Error updating task:", err)
-      throw err
+      console.error("Error updating task:", err);
+      throw err;
     }
   }
 

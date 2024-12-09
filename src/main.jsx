@@ -10,6 +10,9 @@ import { TaskProvider } from './context/TaskContext.jsx'
 import { ProjectProvider } from './context/ProjectContext.jsx';
 import { ToastContainer } from 'react-toastify';  // Import ToastContainer
 import { ChatProvider } from './context/ChatContext';
+import { ActivityLogProvider } from './context/ActivityLogContext.jsx';
+import { NotificationProvider } from './context/notificationContext.jsx';
+import { UserProvider } from './context/UserContext.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -19,8 +22,13 @@ createRoot(document.getElementById('root')).render(
         <TaskProvider>
           <ChatProvider>
           <UserManagementProvider>
+            <ActivityLogProvider>
           <ProjectProvider>
+            <NotificationProvider>
+              <UserProvider>
       <App />
+</UserProvider>
+      </NotificationProvider>
       <ToastContainer 
                 position="top-right"
                 autoClose={5000}
@@ -33,6 +41,7 @@ createRoot(document.getElementById('root')).render(
                 pauseOnHover
               />
             </ProjectProvider>
+            </ActivityLogProvider>
           </UserManagementProvider>
       </ChatProvider>
       </TaskProvider>

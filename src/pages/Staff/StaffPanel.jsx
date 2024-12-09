@@ -25,7 +25,9 @@ import Navbar from "../../components/General/Navbar";
 import Achievements from "./SubPages/Achievements";
 import Home from "./SubPages/Home";
 import TaskManagement from "../Staff/SubPages/TaskManagement";
+import ActivityLog from "../Staff/SubPages/ActivityLog";
 import Chat from "../../components/Staff/Chat";
+import Notification from "../../pages/Staff/SubPages/Notifications";
 
 const StaffPanel = () => {
   const { logout } = useAuth();
@@ -34,9 +36,11 @@ const StaffPanel = () => {
   // Sidebar options and corresponding components
   const pages = {
     Home: { label: "Home", icon: <FaHome />, component: <Home /> },
+    ActivityLog: { label: "Activity Log", icon: <FaHome />, component: <ActivityLog /> },
     Achievements: { label: "Achievements", icon: <FaUsers />, component: <Achievements /> },
     Tasks: { label: "Tasks", icon: <FaTasks />, component: <TaskManagement /> },
     Chat: { label: "Chat", icon: <FaPaw />, component: <Chat />},
+    Notifications: { label: "Notifications", icon: <FaPaw />, component: <Notification/> },
   };
 
   return (
