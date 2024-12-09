@@ -14,6 +14,9 @@ import { ActivityLogProvider } from './context/ActivityLogContext.jsx';
 import { ChatProvider } from './context/ChatContext.jsx';
 import { DashboardProvider } from './context/DashboardContext.jsx';
 import { NotificationProvider } from './context/NotificationContext.jsx';
+import { UserProvider } from './context/UserContext.jsx';
+import { StaffDashboardProvider } from './context/StaffDashboardContext';
+
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -27,7 +30,13 @@ createRoot(document.getElementById('root')).render(
             <ProjectProvider>
               <DashboardProvider>
                 <NotificationProvider>
+                <UserProvider>
+                  <NotificationProvider>
+                    <StaffDashboardProvider>
               <App />
+              </StaffDashboardProvider>
+              </NotificationProvider>
+              </UserProvider>
               {/* Place ToastContainer here so it can be used globally */}
               <ToastContainer 
                 position="top-right"

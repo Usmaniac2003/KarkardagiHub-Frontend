@@ -1,6 +1,6 @@
 import React from 'react'
 import { useUser } from '../../../context/UserContext'
-import AchievementCard from '../../../components/Staff/AchievementCard'
+import AchievementCard from '../../../components/Staff/AchievementCardd'
 
 const ACHIEVEMENT_DETAILS = {
   'staff-of-month': {

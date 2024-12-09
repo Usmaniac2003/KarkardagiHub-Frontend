@@ -16,6 +16,7 @@ import Home from "./Subpages/Home";
 import Settings from "./Subpages/Settings";
 import Notifications from "./Subpages/Notifications";
 import Projects from "./Subpages/Projects";
+import AI from "../../components/Admin/AI";
 const AdminPanel = () => {
   const {logout } = useAuth();
   const [selectedPage, setSelectedPage] = useState("Home");
@@ -25,8 +26,7 @@ const AdminPanel = () => {
     Home: { label: "Home", icon: <FaHome />, component: <Home /> },
     UserManagement: { label: "User", icon: <FaUsers />, component: <UserManagement /> },
     Projects: { label: "Projects", icon: <FaProjectDiagram />, component: <Projects /> },
-    Notifications: { label: "Notifications", icon: <FaBell />, component: <Notifications /> },
-    Annoucments: { label: "Annoucments", icon: <FaBullhorn />, component: <Settings /> },
+    Annoucments: { label: "Annoucments", icon: <FaBullhorn />, component: <AI></AI> },
   };
   
 

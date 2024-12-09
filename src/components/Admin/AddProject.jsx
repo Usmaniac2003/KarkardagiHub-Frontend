@@ -132,7 +132,6 @@ const AddProject = () => {
           }}
         />
         <TextField
-          label="Start Date"
           variant="outlined"
           size="small"
           fullWidth
@@ -148,7 +147,6 @@ const AddProject = () => {
           required
         />
         <TextField
-          label="End Date"
           variant="outlined"
           size="small"
           fullWidth
