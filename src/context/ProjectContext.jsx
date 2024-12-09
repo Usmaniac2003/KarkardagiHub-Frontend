@@ -13,6 +13,8 @@ export const ProjectProvider = ({ children }) => {
     setLoading(true);
     try {
       const response = await api.get("admin/projects");
+      console.log(response);
+      
       setProjects(response.projects);  // Assuming response contains a 'projects' field
     } catch (err) {
       console.error("Error fetching projects:", err.message);

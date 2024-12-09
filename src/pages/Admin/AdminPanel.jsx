@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import {
   Box,
-  Typography,
   List,
   ListItem,
   ListItemIcon,
@@ -9,13 +8,11 @@ import {
   Divider,
   Button,
 } from "@mui/material";
-import { FaUsers, FaUserEdit, FaHome,FaProjectDiagram,FaChartLine,FaCog,FaSignOutAlt, FaBell } from "react-icons/fa";
+import { FaUsers, FaHome,FaProjectDiagram,FaChartLine,FaCog,FaSignOutAlt, FaBell, FaSpeakerDeck, FaBullhorn } from "react-icons/fa";
 import { useAuth } from "../../context/Auth";
 import UserManagement from "../Admin/Subpages/UserManagement";
 import Navbar from "../../components/General/Navbar";
 import Home from "./Subpages/Home";
-import Profile from "./Subpages/Profile";
-import Report from "./Subpages/Report";
 import Settings from "./Subpages/Settings";
 import Notifications from "./Subpages/Notifications";
 import Projects from "./Subpages/Projects";
@@ -28,11 +25,8 @@ const AdminPanel = () => {
     Home: { label: "Home", icon: <FaHome />, component: <Home /> },
     UserManagement: { label: "User", icon: <FaUsers />, component: <UserManagement /> },
     Projects: { label: "Projects", icon: <FaProjectDiagram />, component: <Projects /> },
-    Report: { label: "Reports", icon: <FaChartLine />, component: <Report /> },
-    Profile: { label: "Profile", icon: <FaUserEdit />, component: <Profile /> },
-    
     Notifications: { label: "Notifications", icon: <FaBell />, component: <Notifications /> },
-    Settings: { label: "Settings", icon: <FaCog />, component: <Settings /> },
+    Annoucments: { label: "Annoucments", icon: <FaBullhorn />, component: <Settings /> },
   };
   
 

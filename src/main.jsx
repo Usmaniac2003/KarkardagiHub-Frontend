@@ -10,6 +10,7 @@ import { ProjectProvider } from './context/ProjectContext.jsx';
 import { ToastContainer } from 'react-toastify';  // Import ToastContainer
 import 'react-toastify/dist/ReactToastify.css';  // Import styles for toastify
 import { DashboardProvider } from './context/DashboardContext.jsx';
+import { NotificationsProvider } from './context/NotificationContext.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -19,6 +20,7 @@ createRoot(document.getElementById('root')).render(
           <UserManagementProvider>
             <ProjectProvider>
               <DashboardProvider>
+                <NotificationsProvider>
               <App />
               {/* Place ToastContainer here so it can be used globally */}
               <ToastContainer 
@@ -32,6 +34,7 @@ createRoot(document.getElementById('root')).render(
                 draggable
                 pauseOnHover
               />
+              </NotificationsProvider>
               </DashboardProvider>
             </ProjectProvider>
           </UserManagementProvider>

@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import { useDashboard } from "../../../context/DashboardContext";
 import { BarChart, Bar, PieChart, Pie, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from "recharts";
 
@@ -15,7 +14,6 @@ const Home = () => {
     usersWithBadges,
     loading,
     error,
-    fetchDashboardData,
   } = useDashboard();
 
   // Check if the data is still loading
