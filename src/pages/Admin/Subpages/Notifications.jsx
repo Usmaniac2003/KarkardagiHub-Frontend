@@ -1,7 +1,7 @@
 // src/components/Notification.jsx
 
 import React, { useEffect } from 'react';
-import { useNotifications } from '../../../context/NotificationContext';
+import { useNotificationContext } from '../../../context/NotificationContext';
 
 const Notification = () => {
   const {
@@ -13,7 +13,7 @@ const Notification = () => {
     totalPages,
     currentPage,
     setCurrentPage,
-  } = useNotifications();
+  } = useNotificationContext();
 
   // Fetch notifications when the component mounts
   useEffect(() => {
