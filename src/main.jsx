@@ -13,6 +13,10 @@ import 'react-toastify/dist/ReactToastify.css';  // Import styles for toastify
 import { ActivityLogProvider } from './context/ActivityLogContext.jsx';
 import { ChatProvider } from './context/ChatContext.jsx';
 import { DashboardProvider } from './context/DashboardContext.jsx';
+import { UserProvider } from './context/UserContext.jsx';
+import { NotificationProvider } from './context/notificationContext.jsx';
+import { StaffDashboardProvider } from './context/StaffDashboardContext';
+
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -25,7 +29,13 @@ createRoot(document.getElementById('root')).render(
           <ActivityLogProvider>
             <ProjectProvider>
               <DashboardProvider>
+                <UserProvider>
+                  <NotificationProvider>
+                    <StaffDashboardProvider>
               <App />
+              </StaffDashboardProvider>
+              </NotificationProvider>
+              </UserProvider>
               {/* Place ToastContainer here so it can be used globally */}
               <ToastContainer 
                 position="top-right"
