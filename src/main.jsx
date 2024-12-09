@@ -9,10 +9,10 @@ import { UserManagementProvider } from './context/UserManagement.jsx'
 import { TaskProvider } from './context/TaskContext.jsx'
 import { ProjectProvider } from './context/ProjectContext.jsx';
 import { ToastContainer } from 'react-toastify';  // Import ToastContainer
-import { ChatProvider } from './context/ChatContext';
+import 'react-toastify/dist/ReactToastify.css';  // Import styles for toastify
 import { ActivityLogProvider } from './context/ActivityLogContext.jsx';
-import { NotificationProvider } from './context/notificationContext.jsx';
-import { UserProvider } from './context/UserContext.jsx';
+import { ChatProvider } from './context/ChatContext.jsx';
+import { DashboardProvider } from './context/DashboardContext.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -22,14 +22,12 @@ createRoot(document.getElementById('root')).render(
         <TaskProvider>
           <ChatProvider>
           <UserManagementProvider>
-            <ActivityLogProvider>
-          <ProjectProvider>
-            <NotificationProvider>
-              <UserProvider>
-      <App />
-</UserProvider>
-      </NotificationProvider>
-      <ToastContainer 
+          <ActivityLogProvider>
+            <ProjectProvider>
+              <DashboardProvider>
+              <App />
+              {/* Place ToastContainer here so it can be used globally */}
+              <ToastContainer 
                 position="top-right"
                 autoClose={5000}
                 hideProgressBar={false}
@@ -40,6 +38,7 @@ createRoot(document.getElementById('root')).render(
                 draggable
                 pauseOnHover
               />
+              </DashboardProvider>
             </ProjectProvider>
             </ActivityLogProvider>
           </UserManagementProvider>
