@@ -5,18 +5,24 @@ import './styles/App.css';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { AuthProvider } from './context/Auth.jsx';
 import { CookiesProvider } from 'react-cookie';
-import { UserManagementProvider } from './context/UserManagement.jsx';
+import { UserManagementProvider } from './context/UserManagement.jsx'
+import { TaskProvider } from './context/TaskContext.jsx'
 import { ProjectProvider } from './context/ProjectContext.jsx';
 import { ToastContainer } from 'react-toastify';  // Import ToastContainer
 import 'react-toastify/dist/ReactToastify.css';  // Import styles for toastify
+import { ActivityLogProvider } from './context/ActivityLogContext.jsx';
+import { ChatProvider } from './context/ChatContext.jsx';
 import { DashboardProvider } from './context/DashboardContext.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <Router>
       <CookiesProvider defaultSetOptions={{ path: '/' }}>
-        <AuthProvider>
+      <AuthProvider>
+        <TaskProvider>
+          <ChatProvider>
           <UserManagementProvider>
+          <ActivityLogProvider>
             <ProjectProvider>
               <DashboardProvider>
               <App />
@@ -34,8 +40,11 @@ createRoot(document.getElementById('root')).render(
               />
               </DashboardProvider>
             </ProjectProvider>
+            </ActivityLogProvider>
           </UserManagementProvider>
-        </AuthProvider>
+      </ChatProvider>
+      </TaskProvider>
+      </AuthProvider>
       </CookiesProvider>
     </Router>
   </StrictMode>
