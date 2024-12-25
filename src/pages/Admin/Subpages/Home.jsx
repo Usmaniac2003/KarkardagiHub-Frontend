@@ -44,8 +44,7 @@ const Home = () => {
 
   return (
     <div className="container mx-auto mt-5 p-6">
-      <h1 className="text-center mb-4">Admin Dashboard</h1>
-
+     
       {/* Flex container for Bar and Pie Charts */}
       <div className="flex flex-wrap justify-between mb-6 gap-6" style={{ height: "60vh" }}>
         {/* Bar Chart */}
